@@ -29,10 +29,10 @@ def write():
         return e
 
 
-@app.route("/books", methods=['GET'])
-def read():
+@app.route("/user/<string:userId>/books", methods=['GET'])
+def read(userId):
     try:
-        books = db.collection('books').where("userId", "==", request.get_json()['userId']).stream()
+        books = db.collection('books').where("userId", "==", userId).stream()
         res = []
         for book in books:
             res.append(book.to_dict())
@@ -41,10 +41,10 @@ def read():
         return e
 
 
-@app.route("/phrases", methods=['GET'])
-def getphrases():
+@app.route("/user/<string:userId>/phrases", methods=['GET'])
+def getphrases(userId):
     try:
-        phrases = db.collection('phrases').where("userId", "==", request.get_json()['userId']).stream()
+        phrases = db.collection('phrases').where("userId", "==", userId).stream()
         res = []
         for phrase in phrases:
             res.append(phrase.to_dict())
