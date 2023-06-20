@@ -1,0 +1,11 @@
+{
+  "editor.stickyScroll.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
+  "files.eol": "\r\n",
+  "cSpell.diagnosticLevel": "Hint"
+}

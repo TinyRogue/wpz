@@ -1,0 +1,94 @@
+{
+  "name": "native-book",
+  "author": {
+    "name": "Szymon Wojtaszczyk"
+  },
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^2.0.18",
+    "@hookform/resolvers": "^3.1.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.3",
+    "@mui/x-data-grid": "^6.6.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.2.5",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "axios": "^1.4.0",
+    "classnames": "^2.3.2",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "firebase": "^9.22.2",
+    "i18next": "^22.5.0",
+    "i18next-browser-languagedetector": "^7.0.2",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.2",
+    "react-i18next": "^12.3.1",
+    "react-router-dom": "^6.11.2",
+    "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
+    "swiper": "^9.4.1",
+    "tailwind-merge": "^1.13.0",
+    "ts-node": "^10.9.1",
+    "web-vitals": "^3.3.2",
+    "yup": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/*",
+    "lint:fix": "eslint src/* --fix",
+    "lint:quiet": "eslint src/* --quiet"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.2",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --fix",
+    "*.{js,css,md,ts,jsx,tsx}": "prettier --write"
+  }
+}

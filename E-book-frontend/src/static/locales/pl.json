@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "home": "Panel główny",
+    "phrases": "Moje frazy",
+    "addBook": "Dodaj książkę",
+    "account": "Konto",
+    "logout": "Wyloguj się"
+  },
+  "login": {
+    "title": "Witaj!",
+    "description": "Zaloguj się używając adresu email oraz hasła",
+    "userLabel": "E-mail",
+    "passwordLabel": "Hasło",
+    "loginButton": "Zaloguj się",
+    "register": "Zarejestruj się"
+  },
+  "register": {
+    "title": "Rejestracja",
+    "description": "Zarejestruj się używając adresu email oraz hasła",
+    "userLabel": "E-mail",
+    "passwordLabel": "Hasło",
+    "registerButton": "Zarejestruj się",
+    "login": "Zaloguj się"
+  },
+  "errorMessages": {
+    "required": "Pole wymagane",
+    "email": "Niepoprawny e-mail",
+    "atLeast8Char": "Wymagane min. 8 znaków",
+    "phoneOrEmail": "Niepoprawny numer telefonu/e-mail",
+    "loginFailed": "Logowanie nie powiodło się",
+    "noData": "Brak danych"
+  },
+  "dashboard": {
+    "title": "Twoje dostępne E-booki"
+  },
+  "phrases": {
+    "title": "Twoje frazy"
+  },
+  "addBook": {
+    "title": "Dodaj e-booka"
+  },
+  "account": {
+    "title": "Twoje konto"
+  }
+}
