@@ -3,3 +3,6 @@
 .vscode/
 # Virtual env
 venv/
+firebase_creds.json
+# ENV
+.env
