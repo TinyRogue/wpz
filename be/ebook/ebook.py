@@ -4,10 +4,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from firebase_admin import credentials, firestore, initialize_app
 import openai
+from dotenv import load_dotenv
 
+
+load_dotenv()
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
-cred = credentials.Certificate("wpz-ebook-firebase-adminsdk-dpdbt-1d6d7d1d23.json")
+cred = credentials.Certificate("firebase_creds.json")
 default_app = initialize_app(cred)
 db = firestore.client(default_app)
 
