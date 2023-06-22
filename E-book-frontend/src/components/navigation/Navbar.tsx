@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import { useTranslation } from 'react-i18next';
 import { firebaseAuth } from '../../api/firebase/firebase';
 import { routes } from '../../static/routes';
+import ArrowLeft from '../icons/ArrowLeft';
 import HomeIcon from '../icons/HomeIcon';
 import { Logo } from './components/Logo';
 import NavButton from './components/NavButton';
@@ -37,7 +38,7 @@ export const Navbar = () => {
               signOut(firebaseAuth);
             },
           }}
-          icon={<HomeIcon />}
+          icon={<ArrowLeft color="grey" />}
         />
       </div>
     </nav>

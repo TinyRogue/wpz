@@ -1,7 +1,10 @@
+import { signOut } from 'firebase/auth';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import { firebaseAuth } from '../../api/firebase/firebase';
 import { routes } from '../../static/routes';
+import ArrowLeft from '../icons/ArrowLeft';
 import HamburgerOpen from '../icons/HamburgerOpen';
 import HomeIcon from '../icons/HomeIcon';
 import XMarkIcon from '../icons/XmarkIcon';
@@ -32,7 +35,7 @@ export const NavbarMobile = () => {
         <Logo hideText size={60} />
       </div>
       {isOpen && (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-12">
           <div className="mx-4 rounded-md bg-white700">
             <NavButton
               href={routes.home}
@@ -65,6 +68,18 @@ export const NavbarMobile = () => {
               buttonProps={{
                 onClick: () => setIsOpen(false),
               }}
+            />
+          </div>
+          <div className="mx-4 rounded-md bg-white700">
+            <NavButton
+              href={routes.login}
+              text={t('navigation.logout')}
+              buttonProps={{
+                onClick: () => {
+                  signOut(firebaseAuth);
+                },
+              }}
+              icon={<ArrowLeft color="grey" />}
             />
           </div>
         </div>

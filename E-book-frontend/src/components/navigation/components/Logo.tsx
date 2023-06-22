@@ -12,7 +12,7 @@ export const Logo = (props: LogoProps) => {
     <Link to={routes.home}>
       <div className="flex items-center gap-2">
         <img src={logo} alt="logo" width={props.size ?? 120} height={props.size ?? 120} />
-        {!props.hideText && <h1>Native book</h1>}
+        {!props.hideText && <h1 className="text-2xl font-bold">Native book</h1>}
       </div>
     </Link>
   );

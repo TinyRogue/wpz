@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import Account from '../pages/account/Account';
 import AddBook from '../pages/add-book/AddBook';
+import { BookReader } from '../pages/book-reader/BookReader';
 import Dashboard from '../pages/dashboard/Dashboard';
 import Login from '../pages/login/Login';
 import Phrases from '../pages/phrases/Phrases';
@@ -21,6 +22,16 @@ const AppRoutes: React.FC = () => {
           element={
             <Layout>
               <Dashboard />
+            </Layout>
+          }
+        />
+      </Route>
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path={routes.book}
+          element={
+            <Layout>
+              <BookReader />
             </Layout>
           }
         />

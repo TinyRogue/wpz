@@ -7,8 +7,8 @@ import { BookCard } from './components/BookCard';
 
 export interface IBook {
   title: string;
-  body: string;
-  image: string;
+  bodyRef: string;
+  imageRef: string;
 }
 
 const Dashboard = () => {
@@ -22,8 +22,6 @@ const Dashboard = () => {
       if (userId) {
         const response = await getBooks({ userId });
 
-        // TODO: setBooksHere to be checked when data will exist in bucket
-        console.log(response?.data);
         if (response) {
           setBooks(response.data);
         }
@@ -35,9 +33,9 @@ const Dashboard = () => {
 
   return (
     <TitleWrapper title={t('dashboard.title')}>
-      <div className="relative flex flex-wrap w-full">
+      <div className="relative flex flex-wrap gap-4">
         {books.map((item, idx) => (
-          <BookCard key={idx} book={item} />
+          <BookCard key={idx} book={item} id={`${idx + 1}`} />
         ))}
       </div>
     </TitleWrapper>
