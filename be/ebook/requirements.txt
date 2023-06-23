@@ -9,3 +9,4 @@ cryptography~=41.0.1
 pyparsing~=3.1.0
 firebase-admin~=6.1.0
 python-dotenv~=1.0.0
+Werkzeug~=2.3.6
