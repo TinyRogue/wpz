@@ -25,9 +25,6 @@ export const Navbar = () => {
         <div>
           <NavButton href={routes.addBook} text={t('navigation.addBook')} icon={<HomeIcon />} />
         </div>
-        <div>
-          <NavButton href={routes.account} text={t('navigation.account')} icon={<HomeIcon />} />
-        </div>
       </div>
       <div>
         <NavButton

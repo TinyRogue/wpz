@@ -41,13 +41,13 @@ export const ContextMenu: FC<ContextMenuProps> = ({
       }}
       className="fixed z-10 bg-white p-2"
     >
-      <div className="relative top-0 left-0 z-10 flex flex-row" style={{ height: 40 }}>
+      <div className="relative top-0 left-0 z-10 flex flex-row gap-2" style={{ height: 40 }}>
         <LanguageOption value={languageValue} onChange={onLanguageChange} />
-        <Button onClick={onTranslate} className="mx-2 z-20">
+        <Button onClick={onTranslate} className="mx-2 z-20" sx={{ color: '#333333' }}>
           <TranslateIcon fontSize="small" />
           Przetłumacz
         </Button>
-        <Button onClick={onCopy} className="mx-2 z-20">
+        <Button onClick={onCopy} className="mx-2 z-20" sx={{ color: '#333333' }}>
           <ContentCopyIcon fontSize="small" />
           Skopiuj
         </Button>

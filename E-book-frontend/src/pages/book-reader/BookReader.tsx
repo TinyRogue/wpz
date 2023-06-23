@@ -8,6 +8,7 @@ import { IBook } from '../dashboard/Dashboard';
 import { useContextMenu } from '../../hooks/useContextMenu';
 import { ContextMenu } from './ContextMenu/ContextMenu';
 import { postPhrase } from '../../api/phrases/postPhrase';
+import { toast } from 'react-toastify';
 
 export const BookReader = () => {
   const userId = firebaseAuth.currentUser?.uid;
@@ -72,8 +73,9 @@ export const BookReader = () => {
     }
   };
 
-  const handleCopy = () => {
-    throw Error('Not implemented');
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(currentPhrase);
+    toast.success('Skopiowano frazę do schowka!', { position: 'bottom-right' });
   };
 
   return (
