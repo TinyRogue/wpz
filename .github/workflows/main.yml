@@ -17,7 +17,7 @@ jobs:
           heroku_app_name: "wpz-be"
           heroku_email: "oskarmikus@protonmail.com"
           usedocker: true
-          appdir: "server"
+          appdir: "be/ebook"
           region: "eu"
       - name: deploy fe
         uses: akhileshns/heroku-deploy@v3.12.14
@@ -26,5 +26,5 @@ jobs:
           heroku_app_name: "wpz-fe"
           heroku_email: "oskarmikus@protonmail.com"
           usedocker: true
-          appdir: "fe"
+          appdir: "E-book-frontend"
           region: "eu"
