@@ -4,6 +4,7 @@ export const api = {
     POST_BOOK: '/books',
     GET_BOOKS: (userId: string) => `/user/${userId}/books`,
     POST_PHRASE: '/phrases',
+    POST_EXPLAIN: '/explain',
     GET_PHRASES: (userId: string) => `/user/${userId}/phrases`,
   },
 };

@@ -98,5 +98,20 @@ def translate():
         return e.__str__()
 
 
+@app.route("/explain", methods=['POST'])
+def explain():
+    messages = []
+    req = request.get_json()
+    try:
+        messages.append({"role": "user", "content": f'Please explain briefly meaning of {req["phrase"]} using {req["language"]} language.'})
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+        return response["choices"][0]["message"]["content"]
+    except Exception as e:
+        return e.__str__()
+
+
 if __name__ == '__main__':
     app.run()
