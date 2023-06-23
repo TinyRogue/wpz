@@ -1,1 +1,0 @@
-web: cd be && python3 ebook.py
