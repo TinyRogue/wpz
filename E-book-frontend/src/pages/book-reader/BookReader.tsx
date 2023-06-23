@@ -7,7 +7,8 @@ import { firebaseAuth } from '../../api/firebase/firebase';
 import { IBook } from '../dashboard/Dashboard';
 import { useContextMenu } from '../../hooks/useContextMenu';
 import { ContextMenu } from './ContextMenu/ContextMenu';
-import { postPhrase } from '../../api/phrases/postPhrase';
+import { postExplain, postPhrase } from '../../api/phrases/postPhrase';
+import { toast } from 'react-toastify';
 
 export const BookReader = () => {
   const userId = firebaseAuth.currentUser?.uid;
@@ -19,6 +20,8 @@ export const BookReader = () => {
   const [currentPhrase, setCurrentPhrase] = useState('');
   const [translation, setTranslation] = useState('');
   const [translateLoading, setTranslateLoading] = useState(false);
+  const [explanation, setExplanation] = useState('');
+  const [explanationLoading, setExplanationLoading] = useState(false);
   const [language, setLanguage] = useState('en');
 
   const handleTextSelected = (cfiRange: string) => {
@@ -72,8 +75,21 @@ export const BookReader = () => {
     }
   };
 
-  const handleCopy = () => {
-    throw Error('Not implemented');
+  const handleExplain = async () => {
+    setExplanationLoading(true);
+    try {
+      const response = await postExplain({ userId: userId as string, phrase: currentPhrase, language });
+      setExplanation(response.data);
+    } catch (e: unknown) {
+      setExplanation(JSON.stringify(e));
+    } finally {
+      setExplanationLoading(false);
+    }
+  };
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(currentPhrase);
+    toast.success('Skopiowano frazę do schowka!', { position: 'bottom-right' });
   };
 
   return (
@@ -82,6 +98,10 @@ export const BookReader = () => {
         <ContextMenu
           translateLoading={translateLoading}
           onTranslate={handleTranslate}
+          translation={translation}
+          explanationLoading={explanationLoading}
+          onExplain={handleExplain}
+          explanation={explanation}
           onCopy={handleCopy}
           onLanguageChange={handleOnChange}
           onClose={() => {
@@ -93,7 +113,6 @@ export const BookReader = () => {
           x={36}
           y={36}
           phrase={currentPhrase}
-          translation={translation}
         />
       )}
       {bookUrl && book && (

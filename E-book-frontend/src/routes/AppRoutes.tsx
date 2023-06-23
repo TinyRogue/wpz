@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
-import Account from '../pages/account/Account';
 import AddBook from '../pages/add-book/AddBook';
 import { BookReader } from '../pages/book-reader/BookReader';
 import Dashboard from '../pages/dashboard/Dashboard';
@@ -52,16 +51,6 @@ const AppRoutes: React.FC = () => {
           element={
             <Layout>
               <AddBook />
-            </Layout>
-          }
-        />
-      </Route>
-      <Route element={<ProtectedRoute />}>
-        <Route
-          path={routes.account}
-          element={
-            <Layout>
-              <Account />
             </Layout>
           }
         />

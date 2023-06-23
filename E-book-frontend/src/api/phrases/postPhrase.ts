@@ -10,3 +10,7 @@ interface PostPhraseProps {
 export const postPhrase = async (props: PostPhraseProps) => {
   return await axiosInstance.post(api.endpoints.POST_PHRASE, props);
 };
+
+export const postExplain = async (props: PostPhraseProps) => {
+  return await axiosInstance.post(api.endpoints.POST_EXPLAIN, props);
+};

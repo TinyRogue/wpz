@@ -61,14 +61,6 @@ export const NavbarMobile = () => {
                 onClick: () => setIsOpen(false),
               }}
             />
-            <NavButton
-              href={routes.account}
-              text={t('navigation.account')}
-              icon={<HomeIcon />}
-              buttonProps={{
-                onClick: () => setIsOpen(false),
-              }}
-            />
           </div>
           <div className="mx-4 rounded-md bg-white700">
             <NavButton

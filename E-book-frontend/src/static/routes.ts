@@ -6,7 +6,6 @@ export const routes = {
   book: '/book/:id',
   addBook: '/add-book',
   phrases: '/phrases',
-  account: '/account',
 };
 
 export const paths = {
