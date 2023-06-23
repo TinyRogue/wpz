@@ -93,7 +93,7 @@ def translate():
         tr = response["choices"][0]["message"]["content"]
         db.collection('phrases').add(
             {'phrase': req['phrase'], 'language': req['language'], 'translation': tr, 'userId': req['userId']})
-        return "Translated"
+        return tr
     except Exception as e:
         return e.__str__()
 
