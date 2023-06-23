@@ -7,6 +7,7 @@ import { firebaseAuth } from '../../api/firebase/firebase';
 import { IBook } from '../dashboard/Dashboard';
 import { useContextMenu } from '../../hooks/useContextMenu';
 import { ContextMenu } from './ContextMenu/ContextMenu';
+import { postPhrase } from '../../api/phrases/postPhrase';
 
 export const BookReader = () => {
   const userId = firebaseAuth.currentUser?.uid;
@@ -14,8 +15,10 @@ export const BookReader = () => {
   const [book, setBook] = useState<IBook | null>(null);
   const [bookUrl, setBookUrl] = useState('');
   const [location, setLocation] = useState<any>();
-  const { ref: contextMenuRef, position, isVisible, setVisibility } = useContextMenu();
+  const { ref: contextMenuRef, isVisible, setVisibility } = useContextMenu();
   const [currentPhrase, setCurrentPhrase] = useState('');
+  const [translation, setTranslation] = useState('');
+  const [translateLoading, setTranslateLoading] = useState(false);
   const [language, setLanguage] = useState('en');
 
   const handleTextSelected = (cfiRange: string) => {
@@ -57,15 +60,40 @@ export const BookReader = () => {
     setLanguage(event.target.value);
   };
 
+  const handleTranslate = async () => {
+    setTranslateLoading(true);
+    try {
+      const response = await postPhrase({ userId: userId as string, phrase: currentPhrase, language: language });
+      setTranslation(response.data);
+    } catch (e: unknown) {
+      setTranslation(JSON.stringify(e));
+    } finally {
+      setTranslateLoading(false);
+    }
+  };
+
+  const handleCopy = () => {
+    throw Error('Not implemented');
+  };
+
   return (
     <div className="w-full h-screen" ref={contextMenuRef}>
       {isVisible && (
         <ContextMenu
+          translateLoading={translateLoading}
+          onTranslate={handleTranslate}
+          onCopy={handleCopy}
+          onLanguageChange={handleOnChange}
+          onClose={() => {
+            setVisibility(false);
+            setCurrentPhrase('');
+            setTranslation('');
+          }}
           languageValue={language}
-          onChange={handleOnChange}
-          x={position.x}
-          y={position.y}
+          x={36}
+          y={36}
           phrase={currentPhrase}
+          translation={translation}
         />
       )}
       {bookUrl && book && (
