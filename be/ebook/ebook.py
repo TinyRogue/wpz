@@ -19,7 +19,7 @@ db = firestore.client(default_app)
 bucket = storage.bucket()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 @app.route("/")
