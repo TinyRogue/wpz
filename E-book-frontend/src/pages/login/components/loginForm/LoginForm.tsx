@@ -14,6 +14,7 @@ import { loginValidationSchema } from '../../../../static/validationSchema/login
 import { colors } from '../../../../styles/variables';
 import { ButtonSize } from '../../../../types/ButtonSizes';
 import { ComponentState, ComponentStates } from '../../../../types/ComponentStates.types';
+import { toast } from 'react-toastify';
 
 interface IFormInput {
   email: string;
@@ -51,12 +52,12 @@ const LoginForm: FC = () => {
   const onSubmit: SubmitHandler<IFormInput> = async ({ email, password }) => {
     try {
       await login({ email, password });
+      navigate(routes.home);
     } catch (error) {
-      console.log(error);
+      toast.error('Nieporpawne dane logowania!');
     }
 
     reset();
-    navigate(routes.home);
   };
 
   return (
