@@ -14,6 +14,7 @@ import { loginValidationSchema } from '../../../../static/validationSchema/login
 import { colors } from '../../../../styles/variables';
 import { ButtonSize } from '../../../../types/ButtonSizes';
 import { ComponentState, ComponentStates } from '../../../../types/ComponentStates.types';
+import { toast } from 'react-toastify';
 
 interface IFormInput {
   email: string;
@@ -51,12 +52,11 @@ const RegisterForm: FC = () => {
   const onSubmit: SubmitHandler<IFormInput> = async ({ email, password }) => {
     try {
       await registerFirebase({ email, password });
+      navigate(routes.login);
     } catch (error) {
-      console.log(error);
+      toast.error((error as any)?.message);
     }
-
     reset();
-    navigate(routes.login);
   };
 
   return (
