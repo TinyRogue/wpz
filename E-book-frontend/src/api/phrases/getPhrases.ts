@@ -1,5 +1,5 @@
 import { api } from '../../static/api';
-import { axiosInstance } from '..//axios/axiosInstance';
+import { axiosInstance } from '../axios/axiosInstance';
 
 interface GetPhrasesProps {
   userId: string;

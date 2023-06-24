@@ -8,6 +8,8 @@ export const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': '*',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
   },
   withCredentials: false,
 });
