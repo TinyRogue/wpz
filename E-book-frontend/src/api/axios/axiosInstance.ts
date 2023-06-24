@@ -7,7 +7,7 @@ export const axiosInstance = axios.create({
   baseURL: api.BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:5000',
+    'Access-Control-Allow-Origin': '*',
   },
   withCredentials: false,
 });
