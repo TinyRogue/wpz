@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy server
+        uses: akhileshns/heroku-deploy@v3.12.14
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "wpz-be"
+          heroku_email: "oskarmikus@protonmail.com"
+          usedocker: true
+          appdir: "be/ebook"
+          region: "eu"
+      - name: deploy fe
+        uses: akhileshns/heroku-deploy@v3.12.14
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "wpz-fe"
+          heroku_email: "oskarmikus@protonmail.com"
+          usedocker: true
+          appdir: "E-book-frontend"
+          region: "eu"
