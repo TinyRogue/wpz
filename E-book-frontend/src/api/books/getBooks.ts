@@ -6,5 +6,7 @@ interface GetBooksProps {
 }
 
 export const getBooks = async ({ userId }: GetBooksProps) => {
-  return await axiosInstance.get(api.endpoints.GET_BOOKS(userId));
+  return await axiosInstance.get(api.endpoints.GET_BOOKS(userId), {
+    headers: { crossDomain: true },
+  });
 };

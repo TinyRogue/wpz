@@ -8,9 +8,9 @@ interface PostPhraseProps {
 }
 
 export const postPhrase = async (props: PostPhraseProps) => {
-  return await axiosInstance.post(api.endpoints.POST_PHRASE, props);
+  return await axiosInstance.post(api.endpoints.POST_PHRASE, { ...props, crossDomain: true });
 };
 
 export const postExplain = async (props: PostPhraseProps) => {
-  return await axiosInstance.post(api.endpoints.POST_EXPLAIN, props);
+  return await axiosInstance.post(api.endpoints.POST_EXPLAIN, { ...props, crossDomain: true });
 };

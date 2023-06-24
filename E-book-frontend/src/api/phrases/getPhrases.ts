@@ -6,5 +6,7 @@ interface GetPhrasesProps {
 }
 
 export const getPhrases = async ({ userId }: GetPhrasesProps) => {
-  return await axiosInstance.get(api.endpoints.GET_PHRASES(userId));
+  return await axiosInstance.get(api.endpoints.GET_PHRASES(userId), {
+    headers: { crossDomain: true },
+  });
 };
